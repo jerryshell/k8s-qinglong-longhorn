@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: qinglong-ingress
+spec:
+  rules:
+    - host: qinglong.jerryshell.eu.org
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: qinglong
+                port:
+                  name: http

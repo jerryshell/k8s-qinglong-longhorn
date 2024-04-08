@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qinglong
+  labels:
+    app: qinglong
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: qinglong
+  template:
+    metadata:
+      labels:
+        app: qinglong
+    spec:
+      containers:
+        - name: qinglong
+          image: whyour/qinglong:latest
+          ports:
+            - name: http
+              containerPort: 5700
+          volumeMounts:
+            - mountPath: /ql/data
+              name: qinglong-pvc
+      volumes:
+        - name: qinglong-pvc
+          persistentVolumeClaim:
+            claimName: qinglong-pvc
