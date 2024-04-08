@@ -24,6 +24,12 @@ cd k8s-qinglong-longhorn
 kubectl apply -f k8s/
 ```
 
+## Remove
+
+```bash
+kubectl delete --ignore-not-found=true -f k8s/
+```
+
 ## LICENSE
 
 [GNU Affero General Public License v3.0](https://choosealicense.com/licenses/agpl-3.0/)
