@@ -23,6 +23,10 @@ spec:
           volumeMounts:
             - mountPath: /ql/data
               name: qinglong-pvc
+              subPath: data
+            - mountPath: /root/.local/share/pnpm
+              name: qinglong-pvc
+              subPath: pnpm
       volumes:
         - name: qinglong-pvc
           persistentVolumeClaim:
